@@ -35,6 +35,8 @@ app.get("/profile/:id", profile.handleGet(db));
 app.put('/image', (req, res) => {imageSubmitter.handleSubmit(req, res, db)});
 app.post('/imageurl', (req, res) => {imageSubmitter.handleAPICall(req, res)});
 
-app.listen(5000, () => {
-    console.log('app is running on port 5000');
-});
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 5000;
+}
+app.listen(port);
