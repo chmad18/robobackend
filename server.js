@@ -12,10 +12,8 @@ const imageSubmitter = require('./controllers/imageSubmitter');
 const db = knex({
     client: 'pg',
     connection: {
-        host: 'localhost',
-        user: 'postgres',
-        password: 'test',
-        database: 'smartbrain'
+        host: process.env.DATABASE_URL,
+        ssl: true
     }
 });
 
